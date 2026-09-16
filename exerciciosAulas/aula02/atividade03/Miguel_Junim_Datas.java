@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Miguel_junim_Datas {
+public class Miguel_Junim_Datas {
 
     public static void main(String[] args) {
 
