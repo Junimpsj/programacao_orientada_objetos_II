@@ -12,7 +12,7 @@ public abstract class Entregador {
         throw new IllegalArgumentException("Nome não pode ser vazio.");
     }
 
-    if(cpf == null ) {
+    if(cpf == null) {
         throw new IllegalArgumentException("CPF não pode ser vazio.");
     }
 
