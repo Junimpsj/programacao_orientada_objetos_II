@@ -8,15 +8,15 @@ public abstract class Entregador {
 
     public Entregador(String nome, String cpf, String placaVeiculo) {
         
-    if(nome == null || nome.isBlank()) {
+    if(nome == null) {
         throw new IllegalArgumentException("Nome não pode ser vazio.");
     }
 
-    if(cpf == null || cpf.isBlank()) {
+    if(cpf == null ) {
         throw new IllegalArgumentException("CPF não pode ser vazio.");
     }
 
-    if(placaVeiculo == null || placaVeiculo.isBlank()) {
+    if(placaVeiculo == null) {
         throw new IllegalArgumentException("Placa do veículo não pode ser vazia.");
     }
 
