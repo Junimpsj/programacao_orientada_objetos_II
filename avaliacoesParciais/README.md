@@ -1,6 +1,6 @@
-# Atividades Individuais
+# Avaliações Parciais
 
-Sobre essa pasta, contrariando o que o README principal diz, aqui será desenvolvido apenas algumas atividades/trabalhos individuais que aparecerem durante a disciplina. Tendo apenas eu como responsável.
+Aqui estarão os código de algumas "avaliações parciais" da disciplina que descobrimos da melhor forma possível (contém ironia) que seriam "avaliações supresas". Me senti na Codecon.
 
 ## Como executar
 

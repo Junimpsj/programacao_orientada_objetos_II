@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>br.com.unesp.compras_mercado</groupId>
+    <artifactId>compras_mercado</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <!-- JUnit 5 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.6.0</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!--
+    
+        Comentário e AVISO:
+        Para que os testes sejam executados corretamente verifique sempre
+        -> no <dependency> a sua vesão do JUnit está correta? é a mais recete? lembre de pegar a versão mais recente/correta na documentação
+        -> LEMBRE de declarar também o <build> com os <plugin> que serão utilizados
+        . No caso aqui eu sofri porque meus testes tavam dando erro e não funcionavam de jeito nenhum ai eu fui ver que
+        . não estavamos declarando o plugin maven-surefire-plugin que precisa! (pelo menos para rodar os testes via CLI com "mvn test")
+        . show de bola
+
+    -->
+
+</project>
