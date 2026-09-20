@@ -20,6 +20,8 @@ Diferente de POO I, a disciplina agora tem um caráter mais prático e será ava
 ## Conteúdo
 
 - [`exerciciosAulas/`](exerciciosAulas/): exercícios propostos em aula, organizados por aula/atividade
+- [`atividadesIndividuais/`](atividadesIndividuais/): exercícios que eventualmente podem surgir e que serão individuais para os alunos, esses aqui serão densevolvidos apenas por mim
+- [`avaliacoesParciais/`](avaliacoesParciais/): exercícios subitos que surgirão, quase como uma prova surpresa, a serem desenvolvidos pela equipe também
 
 ## Como executar
 
