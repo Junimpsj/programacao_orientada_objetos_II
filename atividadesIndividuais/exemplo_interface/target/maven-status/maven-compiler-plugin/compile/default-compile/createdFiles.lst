@@ -1,0 +1,5 @@
+br/com/unesp/model/ContaCorrente.class
+br/com/unesp/interfaces/OperacoesBancarias.class
+br/com/unesp/app/App.class
+br/com/unesp/model/Conta.class
+br/com/unesp/model/ContaPoupanca.class
