@@ -1,0 +1,5 @@
+br/com/unesp/pagamento_adapter/Aplication/App.class
+br/com/unesp/pagamento_adapter/Models/ProcessadorLegado.class
+br/com/unesp/pagamento_adapter/Adapter/SuperPayAdapter.class
+br/com/unesp/pagamento_adapter/Models/SuperPayAPI.class
+br/com/unesp/pagamento_adapter/Interface/ProcessadorPagamento.class

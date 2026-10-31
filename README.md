@@ -19,7 +19,7 @@ Diferente de POO I, a disciplina agora tem um caráter mais prático e será ava
 
 ## Conteúdo
 
-- [`exerciciosAulas/`](exerciciosAulas/): exercícios propostos em aula, organizados por aula/atividade
+- [`exerciciosIniciaisTesteSoftware/`](exerciciosIniciaisTesteSoftware/): exercícios iniciais de teste de software propostos em aula, organizados por atividade
 - [`atividadesIndividuais/`](atividadesIndividuais/): exercícios que eventualmente podem surgir e que serão individuais para os alunos, esses aqui serão densevolvidos apenas por mim
 - [`avaliacoesParciais/`](avaliacoesParciais/): exercícios subitos que surgirão, quase como uma prova surpresa, a serem desenvolvidos pela equipe também
 
@@ -33,6 +33,20 @@ javac NomeDoArquivo.java
 java NomeDoArquivo
 ```
 
+**Projetos Maven** (`atividadesIndividuais/` e `avaliacoesParciais/`):
+
+```bash
+cd <pasta_do_projeto>
+mvn test
+```
+
+## Padrões do repositório
+
+- Projetos Maven em Java 17, JUnit 5 (`junit-jupiter`) e `maven-surefire-plugin` declarado no `pom.xml`
+- Todas as classes e métodos documentados com Javadoc
+- Projetos que implementam um design pattern são nomeados como `nome_do_projeto_padrao` (ex.: `jogo_bridge`)
+
 ## Requisitos
 
-- JDK 8+
+- JDK 17+
+- Maven 3.6.3+

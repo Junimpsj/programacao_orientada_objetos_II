@@ -3,8 +3,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import com.unesp.logistica.model.EntregadorMoto;
 
+/**
+ * Testes do cálculo de bônus e das validações do {@link EntregadorMoto}.
+ */
 public class EntregadorMotoTest {
 
+    /**
+     * Verifica que não há bônus fixo se a meta não é atingida.
+     */
     @Test
     void deveCalcularBonusSemAdicionalQuandoMetaNaoAtingida() {
 
@@ -20,6 +26,9 @@ public class EntregadorMotoTest {
 
     }
 
+    /**
+     * Verifica que o bônus fixo é concedido quando a meta é exatamente 100%.
+     */
     @Test
     void deveConcederBonusFixoQuandoMetaForExatamente100PorCento() {
 
@@ -35,6 +44,9 @@ public class EntregadorMotoTest {
 
     }
 
+    /**
+     * Verifica que o bônus fixo não é concedido logo abaixo da meta.
+     */
     @Test
     void naoDeveConcederBonusFixoLogoAbaixoDaMeta() {
 
@@ -50,6 +62,9 @@ public class EntregadorMotoTest {
 
     }
 
+    /**
+     * Verifica que taxa base zero lança {@link IllegalArgumentException}.
+     */
     @Test
     void deveLancarExcecaoParaTaxaBaseZero() {
 
@@ -60,6 +75,9 @@ public class EntregadorMotoTest {
 
     }
 
+    /**
+     * Verifica que taxa base negativa lança {@link IllegalArgumentException}.
+     */
     @Test
     void deveLancarExcecaoParaTaxaBaseNegativa() {
 
@@ -70,6 +88,9 @@ public class EntregadorMotoTest {
 
     }
 
+    /**
+     * Verifica que percentual da meta negativo lança {@link IllegalArgumentException}.
+     */
     @Test
     void deveLancarExcecaoParaPercentualDaMetaNegativo() {
 

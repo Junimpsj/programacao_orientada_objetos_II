@@ -1,0 +1,10 @@
+br/com/unesp/jogo_bridge/Bridge/Unespiano.class
+br/com/unesp/jogo_bridge/Aplication/App.class
+br/com/unesp/jogo_bridge/Bridge/Guerreiro.class
+br/com/unesp/jogo_bridge/Interface/Arma.class
+br/com/unesp/jogo_bridge/Bridge/Mago.class
+br/com/unesp/jogo_bridge/Models/Caramelo.class
+br/com/unesp/jogo_bridge/Models/Cajado.class
+br/com/unesp/jogo_bridge/Bridge/Personagem.class
+br/com/unesp/jogo_bridge/Models/Arco.class
+br/com/unesp/jogo_bridge/Models/Espada.class

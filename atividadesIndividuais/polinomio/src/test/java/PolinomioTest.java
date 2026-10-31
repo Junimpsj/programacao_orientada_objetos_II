@@ -8,10 +8,19 @@ import org.junit.jupiter.api.Test;
 import br.com.unesp.polinomio.model.Polinomio;
 import br.com.unesp.polinomio.model.Termo;
 
+/**
+ * Testes da classe {@link Polinomio}.
+ */
 class PolinomioTest {
 
+    /**
+     * Polinômio base usado nos testes.
+     */
     private Polinomio p1;
 
+    /**
+     * Cria o polinômio base antes de cada teste.
+     */
     @BeforeEach
     void setUp() {
         // P1(x) = 3x^2 + 5x + 2
@@ -20,6 +29,9 @@ class PolinomioTest {
         p1.inserir(new Termo(new BigDecimal("2"), 0));
     }
 
+    /**
+     * Verifica que o polinômio nasce com o termo inicial.
+     */
     @Test
     void deveCriarPolinomioComTermoInicial() {
 
@@ -30,6 +42,9 @@ class PolinomioTest {
         assertEquals(1, polinomio.getTermos().size());
     }
 
+    /**
+     * Verifica que um termo com expoente novo é adicionado à lista.
+     */
     @Test
     void deveInserirNovoTermoQuandoExpoenteNaoExiste() {
 
@@ -40,6 +55,9 @@ class PolinomioTest {
         assertEquals(4, p1.getTermos().size());
     }
 
+    /**
+     * Verifica que termos de mesmo expoente têm os coeficientes somados ao inserir.
+     */
     @Test
     void deveUnificarTermosComMesmoExpoenteAoInserir() {
 
@@ -52,6 +70,9 @@ class PolinomioTest {
         assertEquals(0, new BigDecimal("7").compareTo(p1.getTermos().get(0).getCoeficiente()));
     }
 
+    /**
+     * Verifica o cálculo do valor do polinômio para um x.
+     */
     @Test
     void deveCalcularValorDoPolinomio() {
 
@@ -63,6 +84,9 @@ class PolinomioTest {
         assertEquals(0, new BigDecimal("24").compareTo(resultado));
     }
 
+    /**
+     * Verifica a fusão de dois polinômios.
+     */
     @Test
     void deveFundirDoisPolinomios() {
 
@@ -81,6 +105,9 @@ class PolinomioTest {
         assertEquals(0, new BigDecimal("23").compareTo(p1.calcula(BigDecimal.ONE)));
     }
 
+    /**
+     * Verifica que a fusão soma os coeficientes de termos com o mesmo expoente.
+     */
     @Test
     void deveUnificarTermosComMesmoExpoenteDuranteFusao() {
 

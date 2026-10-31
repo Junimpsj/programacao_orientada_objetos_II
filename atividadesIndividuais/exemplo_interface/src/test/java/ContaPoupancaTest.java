@@ -8,10 +8,19 @@ import org.junit.jupiter.api.Test;
 
 import br.com.unesp.model.ContaPoupanca;
 
+/**
+ * Testes de depósito e saque da {@link ContaPoupanca}.
+ */
 class ContaPoupancaTest {
 
+    /**
+     * Conta usada nos testes.
+     */
     private ContaPoupanca conta;
 
+    /**
+     * Cria a conta de teste antes de cada teste.
+     */
     @BeforeEach
     void setUp() {
         conta = new ContaPoupanca(
@@ -23,6 +32,9 @@ class ContaPoupancaTest {
                 new BigDecimal("0.005"));
     }
 
+    /**
+     * Verifica que o depósito rende bônus de 1% enquanto o saldo projetado não passa do limite.
+     */
     @Test
     void deveRealizarDepositoComBonusDeUmPorCento() {
         // Given
@@ -39,6 +51,9 @@ class ContaPoupancaTest {
                 valorEsperado.compareTo(valorObtido));
     }
 
+    /**
+     * Verifica que o bônus é reduzido quando o saldo projetado ultrapassa o limite.
+     */
     @Test
     void deveAplicarBonusReduzidoAoUltrapassarLimite() {
         // Given
@@ -63,6 +78,9 @@ class ContaPoupancaTest {
                 valorEsperado.compareTo(valorObtido));
     }
 
+    /**
+     * Verifica que o bônus normal ainda vale quando o saldo projetado é igual ao limite.
+     */
     @Test
     void deveAplicarBonusNormalQuandoSaldoProjetadoForIgualAoLimite() {
         // Given
@@ -87,6 +105,9 @@ class ContaPoupancaTest {
                 valorEsperado.compareTo(valorObtido));
     }
 
+    /**
+     * Verifica que depósito nulo lança {@link IllegalArgumentException}.
+     */
     @Test
     void naoDevePermitirDepositoNulo() {
         // Given
@@ -98,6 +119,9 @@ class ContaPoupancaTest {
                 () -> conta.depositar(valorDeposito));
     }
 
+    /**
+     * Verifica que depósito negativo lança {@link IllegalArgumentException}.
+     */
     @Test
     void naoDevePermitirDepositoNegativo() {
         // Given
@@ -109,6 +133,9 @@ class ContaPoupancaTest {
                 () -> conta.depositar(valorDeposito));
     }
 
+    /**
+     * Verifica que depósito igual a zero lança {@link IllegalArgumentException}.
+     */
     @Test
     void naoDevePermitirDepositoIgualAZero() {
         // Given
@@ -120,6 +147,9 @@ class ContaPoupancaTest {
                 () -> conta.depositar(valorDeposito));
     }
 
+    /**
+     * Verifica que o saque debita o valor mais a tarifa.
+     */
     @Test
     void deveRealizarSaqueComTarifa() {
         // Given
@@ -136,6 +166,9 @@ class ContaPoupancaTest {
                 valorEsperado.compareTo(valorObtido));
     }
 
+    /**
+     * Verifica que saque acima do saldo lança {@link IllegalArgumentException}.
+     */
     @Test
     void naoDevePermitirSaqueComSaldoInsuficiente() {
         // Given
@@ -155,6 +188,9 @@ class ContaPoupancaTest {
                 saldoEsperado.compareTo(saldoObtido));
     }
 
+    /**
+     * Verifica que o saque é permitido quando valor mais tarifa é igual ao saldo.
+     */
     @Test
     void devePermitirSaqueQuandoValorMaisTarifaIgualAoSaldo() {
         // Given
@@ -171,6 +207,9 @@ class ContaPoupancaTest {
                 saldoEsperado.compareTo(saldoObtido));
     }
 
+    /**
+     * Verifica que saque nulo lança {@link IllegalArgumentException}.
+     */
     @Test
     void naoDevePermitirSaqueNulo() {
         // Given
@@ -182,6 +221,9 @@ class ContaPoupancaTest {
                 () -> conta.sacar(valorSaque));
     }
 
+    /**
+     * Verifica que saque negativo lança {@link IllegalArgumentException}.
+     */
     @Test
     void naoDevePermitirSaqueNegativo() {
         // Given
@@ -193,6 +235,9 @@ class ContaPoupancaTest {
                 () -> conta.sacar(valorSaque));
     }
 
+    /**
+     * Verifica que saque igual a zero lança {@link IllegalArgumentException}.
+     */
     @Test
     void naoDevePermitirSaqueIgualAZero() {
         // Given

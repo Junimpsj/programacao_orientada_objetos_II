@@ -3,8 +3,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import com.unesp.logistica.model.EntregadorBike;
 
+/**
+ * Testes do cálculo de bônus e das validações do {@link EntregadorBike}.
+ */
 public class EntregadorBikeTest {
 
+    /**
+     * Verifica que o bônus é zero abaixo do mínimo de dias de meta batida.
+     */
     @Test
     void deveZerarBonusAbaixoDaRegraDeCorte() {
 
@@ -20,6 +26,9 @@ public class EntregadorBikeTest {
 
     }
 
+    /**
+     * Verifica que o bônus é concedido exatamente no mínimo de dias de meta batida.
+     */
     @Test
     void deveConcederBonusExatamenteNoLimiteDeCorte() {
 
@@ -35,6 +44,9 @@ public class EntregadorBikeTest {
 
     }
 
+    /**
+     * Verifica que o bônus equivale à taxa base quando todos os dias úteis têm meta batida.
+     */
     @Test
     void deveCalcularBonusMaximoComTodosOsDiasTrabalhados() {
 
@@ -50,6 +62,9 @@ public class EntregadorBikeTest {
 
     }
 
+    /**
+     * Verifica que taxa base zero lança {@link IllegalArgumentException}.
+     */
     @Test
     void deveLancarExcecaoParaTaxaBaseZero() {
 
@@ -60,6 +75,9 @@ public class EntregadorBikeTest {
 
     }
 
+    /**
+     * Verifica que dias de meta batida negativos lançam {@link IllegalArgumentException}.
+     */
     @Test
     void deveLancarExcecaoParaDiasNegativos() {
 
@@ -70,6 +88,9 @@ public class EntregadorBikeTest {
 
     }
 
+    /**
+     * Verifica que mais dias que o total de dias úteis lança {@link IllegalArgumentException}.
+     */
     @Test
     void deveLancarExcecaoParaDiasAcimaDoTotalDeDiasUteis() {
 

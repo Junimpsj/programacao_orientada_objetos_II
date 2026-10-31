@@ -8,7 +8,15 @@ import com.unesp.logistica.model.EntregadorMoto;
 import com.unesp.logistica.model.EntregadorCarro;
 import com.unesp.logistica.model.EntregadorBike;
 
+/**
+ * Ponto de entrada que imprime o relatório de bônus de entregadores de moto, carro e bike.
+ */
 public class App {
+    /**
+     * Cria os entregadores e imprime o bônus de cada um por polimorfismo.
+     *
+     * @param args argumentos de linha de comando (não utilizados)
+     */
     public static void main(String[] args) {
 
         List<Entregador> entregadores = new ArrayList<>();

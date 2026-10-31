@@ -4,8 +4,16 @@ import java.math.BigDecimal;
 
 import br.com.unesp.model.ContaPoupanca;
 
+/**
+ * Ponto de entrada que exercita uma {@link ContaPoupanca} com depósitos e saques.
+ */
 public class App {
 
+    /**
+     * Realiza depósitos (com bônus normal e reduzido) e saques (válido e inválido), imprimindo o extrato.
+     *
+     * @param args argumentos de linha de comando (não utilizados)
+     */
     public static void main(String[] args) {
 
         ContaPoupanca conta = new ContaPoupanca(

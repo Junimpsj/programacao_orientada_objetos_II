@@ -6,8 +6,14 @@ import br.com.unesp.compras_mercado.Model.ItemPedido;
 import br.com.unesp.compras_mercado.Model.Produto;
 import br.com.unesp.compras_mercado.Model.PagamentoDinheiro;
 
+/**
+ * Testes da classe {@link Pedido}.
+ */
 public class PedidoTest {
 
+    /**
+     * Verifica que o item adicionado entra na lista do pedido.
+     */
     @Test
     void deveAdicionarItemNaLista() {
 
@@ -26,6 +32,9 @@ public class PedidoTest {
 
     }
 
+    /**
+     * Verifica o cálculo do total do pedido.
+     */
     @Test
     void deveCalcularTotalCorretamente() {
 
@@ -45,6 +54,9 @@ public class PedidoTest {
 
     }
 
+    /**
+     * Verifica que finalizar o pedido dá baixa no estoque de todos os produtos.
+     */
     @Test
     void deveBaixarEstoqueDeTodosProdutosAoFinalizar() {
 
@@ -65,6 +77,9 @@ public class PedidoTest {
 
     }
 
+    /**
+     * Verifica que a forma de pagamento definida é retornada.
+     */
     @Test
     void deveRetornarFormaPagamentoCorreta() {
 
@@ -80,6 +95,9 @@ public class PedidoTest {
 
     }
 
+    /**
+     * Verifica que finalizar sem forma de pagamento lança {@link IllegalStateException}.
+     */
     @Test
     void deveLancarExcecaoQuandoFinalizarSemFormaPagamento() {
 

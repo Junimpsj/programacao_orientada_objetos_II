@@ -7,8 +7,14 @@ import org.junit.jupiter.api.Test;
 
 import br.com.unesp.polinomio.model.Termo;
 
+/**
+ * Testes da classe {@link Termo}.
+ */
 class TermoTest {
 
+    /**
+     * Verifica que o termo guarda coeficiente e expoente informados.
+     */
     @Test
     void deveCriarTermoComCoeficienteEExpoente() {
 
@@ -20,6 +26,9 @@ class TermoTest {
         assertEquals(2, termo.getExpoente());
     }
 
+    /**
+     * Verifica que coeficiente nulo lança {@link IllegalArgumentException}.
+     */
     @Test
     void deveLancarExcecaoParaCoeficienteNulo() {
 
@@ -29,6 +38,9 @@ class TermoTest {
         });
     }
 
+    /**
+     * Verifica que expoente negativo lança {@link IllegalArgumentException}.
+     */
     @Test
     void deveLancarExcecaoParaExpoenteNegativo() {
 
@@ -38,6 +50,9 @@ class TermoTest {
         });
     }
 
+    /**
+     * Verifica o cálculo do valor do termo para um x.
+     */
     @Test
     void deveCalcularValorDoTermo() {
 
@@ -51,6 +66,9 @@ class TermoTest {
         assertEquals(0, new BigDecimal("12").compareTo(resultado));
     }
 
+    /**
+     * Verifica que {@link Termo#insere(Termo)} substitui os valores do termo corrente.
+     */
     @Test
     void deveInserirSubstituindoValoresDoTermoCorrente() {
 

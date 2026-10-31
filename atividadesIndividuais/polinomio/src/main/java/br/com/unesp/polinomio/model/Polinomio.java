@@ -6,10 +6,22 @@ import java.util.List;
 
 import br.com.unesp.polinomio.interfaces.Calculavel;
 
+/**
+ * Polinômio formado por uma lista de {@link Termo}, sem expoentes repetidos.
+ */
 public class Polinomio implements Calculavel {
 
+    /**
+     * Termos do polinômio.
+     */
     private List<Termo> termos;
 
+    /**
+     * Cria um polinômio com um termo inicial.
+     *
+     * @param termo termo inicial
+     * @throws IllegalArgumentException se o termo for nulo
+     */
     public Polinomio(Termo termo) {
 
         if (termo == null) {
@@ -20,10 +32,21 @@ public class Polinomio implements Calculavel {
         this.termos.add(termo);
     }
 
+    /**
+     * Retorna os termos do polinômio.
+     *
+     * @return a lista de termos
+     */
     public List<Termo> getTermos() {
         return termos;
     }
 
+    /**
+     * Insere um termo, somando os coeficientes se já existir termo com o mesmo expoente.
+     *
+     * @param termo termo a inserir
+     * @throws IllegalArgumentException se o termo for nulo
+     */
     // se já existe termo com mesmo expoente, unifica os coeficientes (soma) usando o insere do Termo
     // senão, adiciona o termo novo na lista
     public void inserir(Termo termo) {
@@ -43,6 +66,12 @@ public class Polinomio implements Calculavel {
         termos.add(termo);
     }
 
+    /**
+     * Funde outro polinômio a este, inserindo cada um dos seus termos.
+     *
+     * @param outro polinômio a ser fundido
+     * @throws IllegalArgumentException se o polinômio for nulo
+     */
     // ta pedindo fusao(Polinomio) na classe Termo (la no enunciado), mas o exemplo (P1 fusao P2 -> altera P1) só faz
     // sentido entre polinômios, então implementei aqui reaproveitando o inserir pra unificar os termos
     public void fusao(Polinomio outro) {
@@ -56,6 +85,12 @@ public class Polinomio implements Calculavel {
         }
     }
 
+    /**
+     * Calcula o valor do polinômio somando o valor de cada termo.
+     *
+     * @param x valor de x
+     * @return o resultado do polinômio para o x informado
+     */
     @Override
     public BigDecimal calcula(BigDecimal x) {
 
@@ -68,6 +103,11 @@ public class Polinomio implements Calculavel {
         return resultado;
     }
 
+    /**
+     * Representa o polinômio como a soma dos seus termos (ex.: {@code 3x^2 + 5x^1}).
+     *
+     * @return a representação textual do polinômio
+     */
     @Override
     public String toString() {
 

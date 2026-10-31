@@ -4,8 +4,14 @@ import static org.junit.jupiter.api.Assertions.*;
 import br.com.unesp.compras_mercado.Model.ItemPedido;
 import br.com.unesp.compras_mercado.Model.Produto;
 
+/**
+ * Testes da classe {@link ItemPedido}.
+ */
 public class ItemPedidoTest {
 
+    /**
+     * Verifica que quantidade zero lança {@link IllegalArgumentException}.
+     */
     @Test
     void deveLancarEscecaoParaQuantidadeZeroOuNegativa() {
         
@@ -19,6 +25,9 @@ public class ItemPedidoTest {
 
     }
     
+    /**
+     * Verifica que uma quantidade válida não lança exceção.
+     */
     @Test
     void NaoDeveLancarExcecaoParaQuantidadeValida() {
 
@@ -31,6 +40,9 @@ public class ItemPedidoTest {
         });
     }
 
+    /**
+     * Verifica o cálculo do subtotal do item.
+     */
     @Test
     void deveCalcularSubtotalCorretamente() {
 
@@ -51,7 +63,11 @@ public class ItemPedidoTest {
 
     }
 
-    @Test void deveRetornarProdutoAssociado() {
+    /**
+     * Verifica que o item retorna o produto associado.
+     */
+    @Test
+    void deveRetornarProdutoAssociado() {
 
         // given
         Produto produto = new Produto("Caixa de Morango 200g", 10.5, 30);

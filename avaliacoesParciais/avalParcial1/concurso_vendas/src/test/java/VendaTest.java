@@ -8,18 +8,30 @@ import org.junit.jupiter.api.Test;
 import br.com.unesp.avaliacao.Participante;
 import br.com.unesp.avaliacao.Venda;
 
+/**
+ * Testes da classe {@link Venda}.
+ */
 public class VendaTest{
 
+    /**
+     * Exibe o cabeçalho da suíte de testes.
+     */
     @BeforeAll
     static void iniciarTestes(){
         System.out.println("=== INICIANDO TESTES DE VENDAS ===");
     }
 
+    /**
+     * Exibe uma mensagem antes de cada teste.
+     */
     @BeforeEach
     void preparar() {
         System.out.println("Preparando teste...");
     }
 
+    /**
+     * Verifica que valor de venda negativo lança {@link IllegalStateException}.
+     */
     @Test
     public void casoVendaNegativa() {
 
@@ -33,6 +45,9 @@ public class VendaTest{
         });
     }
 
+    /**
+     * Exibe o rodapé da suíte de testes.
+     */
     @AfterAll
     static void finalizarTestes(){
         System.out.println("=== FINALIZANDO TESTES DE VENDAS ===");

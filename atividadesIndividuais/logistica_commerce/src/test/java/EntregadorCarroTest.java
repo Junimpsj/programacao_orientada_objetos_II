@@ -3,8 +3,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import com.unesp.logistica.model.EntregadorCarro;
 
+/**
+ * Testes do cálculo de bônus e das validações do {@link EntregadorCarro}.
+ */
 public class EntregadorCarroTest {
 
+    /**
+     * Verifica que não há bônus fixo de frota se a meta ponderada não é atingida.
+     */
     @Test
     void deveCalcularBonusSemAdicionalDeFrotaQuandoMetaPonderadaNaoAtingida() {
 
@@ -20,6 +26,9 @@ public class EntregadorCarroTest {
 
     }
 
+    /**
+     * Verifica que o bônus fixo de frota é concedido quando a meta ponderada atinge exatamente 100%.
+     */
     @Test
     void deveConcederBonusDeFrotaQuandoMetaPonderadaAtingeExatamente100PorCento() {
 
@@ -36,6 +45,9 @@ public class EntregadorCarroTest {
 
     }
 
+    /**
+     * Verifica que o bônus fixo de frota não é concedido logo abaixo da meta ponderada.
+     */
     @Test
     void naoDeveConcederBonusDeFrotaLogoAbaixoDaMetaPonderada() {
 
@@ -51,6 +63,9 @@ public class EntregadorCarroTest {
 
     }
 
+    /**
+     * Verifica que taxa base negativa lança {@link IllegalArgumentException}.
+     */
     @Test
     void deveLancarExcecaoParaTaxaBaseNegativa() {
 
@@ -61,6 +76,9 @@ public class EntregadorCarroTest {
 
     }
 
+    /**
+     * Verifica que percentual da meta negativo lança {@link IllegalArgumentException}.
+     */
     @Test
     void deveLancarExcecaoParaPercentualDaMetaNegativo() {
 

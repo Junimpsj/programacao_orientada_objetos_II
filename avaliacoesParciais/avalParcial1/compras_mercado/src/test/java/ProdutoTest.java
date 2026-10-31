@@ -3,8 +3,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import br.com.unesp.compras_mercado.Model.Produto;
 
+/**
+ * Testes da classe {@link Produto}.
+ */
 public class ProdutoTest {
 
+    /**
+     * Verifica que preço negativo lança {@link IllegalArgumentException}.
+     */
     @Test
     void deveLancarExcecaoParaPrecoNegativoOuZero() {
 
@@ -15,6 +21,9 @@ public class ProdutoTest {
 
     }
 
+    /**
+     * Verifica que estoque negativo lança {@link IllegalArgumentException}.
+     */
     @Test
     void deveLancarExcecaoParaEstoqueNegativo() {
         
@@ -25,6 +34,9 @@ public class ProdutoTest {
 
     }
 
+    /**
+     * Verifica que valores válidos não lançam exceção.
+     */
     @Test
     void naoDeveLancarExcecaoParaValoresValidos() {
 
@@ -39,6 +51,9 @@ public class ProdutoTest {
 
     }
 
+    /**
+     * Verifica que a baixa reduz o estoque na quantidade pedida.
+     */
     @Test
     void deveBaixarEstoqueCorretamente() {
         
@@ -54,6 +69,9 @@ public class ProdutoTest {
 
     }
 
+    /**
+     * Verifica que baixa maior que o estoque lança {@link IllegalArgumentException}.
+     */
     @Test
     void deveLancarExcecaoQuandoBaixarEstoqueMaiorQueDisponivel() {
 

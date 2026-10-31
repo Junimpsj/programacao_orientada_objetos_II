@@ -10,18 +10,30 @@ import br.com.unesp.avaliacao.ApuracaoVendas;
 import br.com.unesp.avaliacao.Participante;
 import br.com.unesp.avaliacao.Venda;
 
+/**
+ * Testes da classe {@link ApuracaoVendas}.
+ */
 public class ApuracaoVendasTest {
 
+    /**
+     * Exibe o cabeçalho da suíte de testes.
+     */
     @BeforeAll
     static void iniciarTestes(){
         System.out.println("=== INICIANDO TESTES DE APURACAO DE VENDAS ===");
     }
 
+    /**
+     * Exibe uma mensagem antes de cada teste.
+     */
     @BeforeEach
     void preparar() {
         System.out.println("Preparando teste...");
     }
 
+    /**
+     * Verifica que a 11ª venda lança {@link IllegalStateException}.
+     */
     @Test
     public void testEleventhSale() {
 
@@ -42,6 +54,9 @@ public class ApuracaoVendasTest {
         });
     }
 
+    /**
+     * Verifica que a venda de um participante sênior recebe +25%.
+     */
     @Test
     public void testAparacao() {
 
@@ -59,6 +74,9 @@ public class ApuracaoVendasTest {
         assertEquals(saidaEsperada, venda.getValorVenda());
     }
 
+    /**
+     * Exibe o rodapé da suíte de testes.
+     */
     @AfterAll
     static void finalizarTestes(){
         System.out.println("=== FINALIZANDO TESTES DE APURACAO DE VENDAS ===");

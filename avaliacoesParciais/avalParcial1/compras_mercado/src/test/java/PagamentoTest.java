@@ -5,8 +5,14 @@ import br.com.unesp.compras_mercado.Model.PagamentoDinheiro;
 import br.com.unesp.compras_mercado.Model.PagamentoCheque;
 import br.com.unesp.compras_mercado.Model.PagamentoCartao;
 
+/**
+ * Testes das formas de {@link Pagamento}.
+ */
 public class PagamentoTest {
 
+    /**
+     * Verifica a descrição do pagamento em dinheiro.
+     */
     @Test
     void deveRetornarMetodoDinheiro() {
 
@@ -22,6 +28,9 @@ public class PagamentoTest {
 
     }
 
+    /**
+     * Verifica a descrição do pagamento com cheque.
+     */
     @Test
     void deveRetornarMetodoCheque() {
 
@@ -37,6 +46,9 @@ public class PagamentoTest {
 
     }
 
+    /**
+     * Verifica a descrição do pagamento com cartão.
+     */
     @Test
     void deveRetornarMetodoCartao() {
 

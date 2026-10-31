@@ -3,20 +3,55 @@ package br.com.unesp.model;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+/**
+ * Conta poupança com rendimento, tarifa por saque e bônus em depósitos
+ * (normal até R$ 5.000,00 de saldo e reduzido acima disso).
+ */
 public class ContaPoupanca extends Conta {
 
+    /**
+     * Número da conta.
+     */
     private int numConta;
+    /**
+     * Número da agência.
+     */
     private int numAgencia;
+    /**
+     * Taxa de rendimento da poupança.
+     */
     private BigDecimal rendimento;
 
+    /**
+     * Saldo a partir do qual o bônus passa a ser reduzido.
+     */
     // usando BigDecimal em vez de double porque o double tem aqueles erros de arredondamento binário
     // e como estamos mexendo com dinheiro isso não pode acontecer
     // obs: criamos a partir de String ("5000.00") pra ele já nascer com o valor exato
     private static final BigDecimal LIMITE = new BigDecimal("5000.00");
+    /**
+     * Bônus de 1% sobre o depósito.
+     */
     private static final BigDecimal BONUS_NORMAL = new BigDecimal("0.01");
+    /**
+     * Bônus de 0,5% sobre o depósito.
+     */
     private static final BigDecimal BONUS_REDUZIDO = new BigDecimal("0.005");
+    /**
+     * Tarifa cobrada a cada saque.
+     */
     private static final BigDecimal TARIFA = new BigDecimal("2.00");
 
+    /**
+     * Cria uma conta poupança.
+     *
+     * @param codigo código da conta
+     * @param cliente nome do cliente titular
+     * @param saldo saldo inicial
+     * @param numConta número da conta
+     * @param numAgencia número da agência
+     * @param rendimento taxa de rendimento
+     */
     public ContaPoupanca(int codigo, String cliente,
             BigDecimal saldo, int numConta,
             int numAgencia, BigDecimal rendimento) {
@@ -28,6 +63,12 @@ public class ContaPoupanca extends Conta {
         this.rendimento = rendimento;
     }
 
+    /**
+     * Deposita um valor aplicando o bônus normal ou o reduzido, conforme o saldo projetado.
+     *
+     * @param valor valor a depositar
+     * @throws IllegalArgumentException se o valor for nulo ou menor/igual a zero
+     */
     @Override
     public void depositar(BigDecimal valor) {
 
@@ -64,6 +105,12 @@ public class ContaPoupanca extends Conta {
         saldo = saldo.add(valor).add(bonus).setScale(2, RoundingMode.HALF_UP);
     }
 
+    /**
+     * Saca um valor cobrando a tarifa fixa.
+     *
+     * @param valor valor a sacar
+     * @throws IllegalArgumentException se o valor for nulo, menor/igual a zero ou se o saldo não cobrir saque e tarifa
+     */
     @Override
     public void sacar(BigDecimal valor) {
 
@@ -90,6 +137,9 @@ public class ContaPoupanca extends Conta {
                 .setScale(2, RoundingMode.HALF_UP);
     }
 
+    /**
+     * Imprime o extrato da conta no console.
+     */
     public void imprimirExtrato() {
 
         System.out.println("\n===== EXTRATO BANCÁRIO =====");

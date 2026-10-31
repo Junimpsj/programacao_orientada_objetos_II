@@ -3,16 +3,48 @@ package br.com.unesp.model;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+/**
+ * Conta corrente com limite de crédito, tarifa por saque e bônus em depósitos
+ * que levam o saldo acima de R$ 50.000,00.
+ */
 public class ContaCorrente extends Conta {
 
+    /**
+     * Número da conta.
+     */
     private int numConta;
+    /**
+     * Número da agência.
+     */
     private int numAgencia;
+    /**
+     * Limite de crédito (cheque especial).
+     */
     private BigDecimal limite;
 
+    /**
+     * Tarifa cobrada a cada saque.
+     */
     private static final BigDecimal TARIFA = new BigDecimal("10.00");
+    /**
+     * Saldo acima do qual o depósito rende bônus.
+     */
     private static final BigDecimal LIMITE_BONUS = new BigDecimal("50000.00");
+    /**
+     * Percentual de bônus sobre o depósito.
+     */
     private static final BigDecimal BONUS = new BigDecimal("0.005");
 
+    /**
+     * Cria uma conta corrente.
+     *
+     * @param codigo código da conta
+     * @param cliente nome do cliente titular
+     * @param saldo saldo inicial
+     * @param numConta número da conta
+     * @param numAgencia número da agência
+     * @param limite limite de crédito
+     */
     public ContaCorrente(int codigo, String cliente,
             BigDecimal saldo, int numConta,
             int numAgencia, BigDecimal limite) {
@@ -24,6 +56,12 @@ public class ContaCorrente extends Conta {
         this.limite = limite;
     }
 
+    /**
+     * Deposita um valor, com bônus de 0,5% se o saldo final passar de R$ 50.000,00.
+     *
+     * @param valor valor a depositar
+     * @throws IllegalArgumentException se o valor for nulo ou menor/igual a zero
+     */
     @Override
     public void depositar(BigDecimal valor) {
 
@@ -47,6 +85,12 @@ public class ContaCorrente extends Conta {
         this.saldo = saldoProjetado.setScale(2, RoundingMode.HALF_UP);
     }
 
+    /**
+     * Saca um valor cobrando a tarifa fixa, podendo usar o limite.
+     *
+     * @param valor valor a sacar
+     * @throws IllegalArgumentException se o valor for nulo, menor/igual a zero ou se o saldo com limite não cobrir saque e tarifa
+     */
     @Override
     public void sacar(BigDecimal valor) {
 
@@ -72,6 +116,9 @@ public class ContaCorrente extends Conta {
                 .setScale(2, RoundingMode.HALF_UP);
     }
 
+    /**
+     * Imprime o extrato da conta no console.
+     */
     public void imprimirExtrato() {
 
         System.out.println("\n===== EXTRATO BANCÁRIO =====");

@@ -8,10 +8,19 @@ import org.junit.jupiter.api.Test;
 
 import br.com.unesp.model.ContaCorrente;
 
+/**
+ * Testes de depósito e saque da {@link ContaCorrente}.
+ */
 class ContaCorrenteTest {
 
+    /**
+     * Conta usada nos testes.
+     */
     private ContaCorrente conta;
 
+    /**
+     * Cria a conta de teste antes de cada teste.
+     */
     @BeforeEach
     void setUp() {
         conta = new ContaCorrente(
@@ -23,6 +32,9 @@ class ContaCorrenteTest {
                 new BigDecimal("500.00"));
     }
 
+    /**
+     * Verifica que o depósito não rende bônus enquanto o saldo projetado não passa de R$ 50.000,00.
+     */
     @Test
     void deveRealizarDepositoSemBonusAbaixoDoLimite() {
         // Given
@@ -39,6 +51,9 @@ class ContaCorrenteTest {
                 valorEsperado.compareTo(valorObtido));
     }
 
+    /**
+     * Verifica que o depósito rende bônus quando o saldo projetado passa de R$ 50.000,00.
+     */
     @Test
     void deveAplicarBonusAoUltrapassarCinquentaMil() {
         // Given
@@ -64,6 +79,9 @@ class ContaCorrenteTest {
                 valorEsperado.compareTo(valorObtido));
     }
 
+    /**
+     * Verifica que não há bônus quando o saldo projetado é exatamente o limite.
+     */
     @Test
     void naoDeveAplicarBonusQuandoSaldoProjetadoForIgualAoLimite() {
         // Given
@@ -88,6 +106,9 @@ class ContaCorrenteTest {
                 valorEsperado.compareTo(valorObtido));
     }
 
+    /**
+     * Verifica que depósito nulo lança {@link IllegalArgumentException}.
+     */
     @Test
     void naoDevePermitirDepositoNulo() {
         // Given
@@ -99,6 +120,9 @@ class ContaCorrenteTest {
                 () -> conta.depositar(valorDeposito));
     }
 
+    /**
+     * Verifica que depósito negativo lança {@link IllegalArgumentException}.
+     */
     @Test
     void naoDevePermitirDepositoNegativo() {
         // Given
@@ -110,6 +134,9 @@ class ContaCorrenteTest {
                 () -> conta.depositar(valorDeposito));
     }
 
+    /**
+     * Verifica que depósito igual a zero lança {@link IllegalArgumentException}.
+     */
     @Test
     void naoDevePermitirDepositoIgualAZero() {
         // Given
@@ -121,6 +148,9 @@ class ContaCorrenteTest {
                 () -> conta.depositar(valorDeposito));
     }
 
+    /**
+     * Verifica que o saque dentro do saldo debita o valor mais a tarifa.
+     */
     @Test
     void deveRealizarSaqueComTarifaUsandoSaldo() {
         // Given
@@ -137,6 +167,9 @@ class ContaCorrenteTest {
                 valorEsperado.compareTo(valorObtido));
     }
 
+    /**
+     * Verifica que o saque pode usar o limite quando o saldo não basta.
+     */
     @Test
     void devePermitirSaqueUsandoLimite() {
         // Given
@@ -154,6 +187,9 @@ class ContaCorrenteTest {
                 saldoEsperado.compareTo(saldoObtido));
     }
 
+    /**
+     * Verifica que saque acima de saldo mais limite lança {@link IllegalArgumentException}.
+     */
     @Test
     void naoDevePermitirSaqueComSaldoMaisLimiteInsuficiente() {
         // Given
@@ -173,6 +209,9 @@ class ContaCorrenteTest {
                 saldoEsperado.compareTo(saldoObtido));
     }
 
+    /**
+     * Verifica que saque nulo lança {@link IllegalArgumentException}.
+     */
     @Test
     void naoDevePermitirSaqueNulo() {
         // Given
@@ -184,6 +223,9 @@ class ContaCorrenteTest {
                 () -> conta.sacar(valorSaque));
     }
 
+    /**
+     * Verifica que saque negativo lança {@link IllegalArgumentException}.
+     */
     @Test
     void naoDevePermitirSaqueNegativo() {
         // Given
@@ -195,6 +237,9 @@ class ContaCorrenteTest {
                 () -> conta.sacar(valorSaque));
     }
 
+    /**
+     * Verifica que saque igual a zero lança {@link IllegalArgumentException}.
+     */
     @Test
     void naoDevePermitirSaqueIgualAZero() {
         // Given

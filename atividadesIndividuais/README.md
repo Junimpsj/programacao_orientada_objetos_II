@@ -2,19 +2,34 @@
 
 Sobre essa pasta, contrariando o que o README principal diz, aqui será desenvolvido apenas algumas atividades/trabalhos individuais que aparecerem durante a disciplina. Tendo apenas eu como responsável.
 
+## Projetos
+
+| Projeto | Descrição | Padrão |
+|---|---|---|
+| [`checkout_ecommerce_abstract_factory`](checkout_ecommerce_abstract_factory/) | Checkout com imposto e frete por país | Abstract Factory |
+| [`jogo_bridge`](jogo_bridge/) | Personagens e armas combináveis em tempo de execução | Bridge |
+| [`loja_virtual_factory`](loja_virtual_factory/) | Criação de formas de pagamento por tipo | Factory |
+| [`loja_virtual_singleton_prototype`](loja_virtual_singleton_prototype/) | Configuração única da loja e clonagem de produtos | Singleton e Prototype |
+| [`pagamento_adapter`](pagamento_adapter/) | Integração da API SuperPay ao contrato de pagamento do sistema | Adapter |
+| [`sistema_relatorios_factory_method`](sistema_relatorios_factory_method/) | Geração de relatórios em PDF e Excel | Factory Method |
+| [`exemplo_interface`](exemplo_interface/) | Contas corrente e poupança com interface de operações bancárias | - |
+| [`logistica_commerce`](logistica_commerce/) | Bônus de entregadores de moto, carro e bike | - |
+| [`polinomio`](polinomio/) | Termos e polinômios com `BigDecimal` | - |
+
+Projetos que implementam um design pattern seguem o nome `nome_do_projeto_padrao`.
+
 ## Como executar
 
-**Arquivos Java soltos** (exercícios e atividades):
+Cada pasta é um projeto Maven; a classe principal fica no pacote `Aplication`/`application`/`app` (ex.: `App`).
 
 ```bash
-cd <pasta_da_atividade>
-javac NomeDoArquivo.java
-java NomeDoArquivo
+cd <pasta_do_projeto>
+mvn compile exec:java -Dexec.mainClass=<pacote.App>
 ```
 
 ## Como testar
 
-Com o JUnit devidamente importado e o plugin Surefire também devidamente importado:
+Todos os projetos já declaram o JUnit 5 e o plugin Surefire no `pom.xml`:
 
 ```bash
 mvn test
@@ -22,4 +37,5 @@ mvn test
 
 ## Requisitos
 
-- JDK 8+
+- JDK 17+
+- Maven 3.6.3+
